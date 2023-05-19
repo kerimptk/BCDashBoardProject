@@ -9,14 +9,17 @@ namespace BCDashBoardProject.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly BCSCDBContext _dbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, BCSCDBContext dbContext)
         {
             _logger = logger;
+            _dbContext = dbContext;
         }
          
         public IActionResult Index()
         {
+            _dbContext.
             return View();
         }
 
