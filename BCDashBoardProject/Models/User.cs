@@ -1,5 +1,5 @@
 ﻿
-namespace BCSC.Entities
+namespace BCDashBoardProject.Models
 {
     public class User
     {
