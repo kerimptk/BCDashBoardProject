@@ -16,21 +16,20 @@ namespace BCDashBoardProject.Controllers
             _logger = logger;
             _dbContext = dbContext; 
         }
-        
+
         public IActionResult Index()
         {
             var isLogin = HttpContext.Session.Keys.FirstOrDefault();
-            if (isLogin.Equals("UserName"))
+            if (isLogin != null && isLogin.Equals("UserName"))
             {
                 var query = _dbContext.Users.ToList();
-
+                ViewBag.IsLogin = true;
                 return View();
             }
             else
             {
-                return RedirectToAction("Login","Auth");
+                return RedirectToAction("Login", "Auth");
             }
-
         }
 
         public IActionResult Privacy()
